@@ -1,1 +1,1 @@
-# Senla-JS--Course
+# Senla-JS-Course
