@@ -30,12 +30,13 @@ function isPalindrome (word) {
 
 // Написать функцию-рекурсию, которая выведет каждый символ строки в конcоль
 // ('test') => 't' 'e' 's' 't'
-function letters(string) {
+function stringSplit(string) {
     console.log(string[0]);
-    if (string.length > 0) {
-        return letters(string.substr(1));
+    if (string.length - 1 > 0) {
+        return stringSplit(string.substr(1));
     }
 }
-// letters('test');
-// letters('javascript');
+// stringSplit('test');
+// stringSplit('javascript');
+
 
