@@ -29,7 +29,7 @@ if (typeof +num ==='number') { // Валидация значения
 
 // Сделать тоже самое, используя тернарный оператор.
 
-typeof +num ==='number' ? num < 0 ? num = 'меньше нуля' : num === 0 ? num = 1 : num *= 10 : console.log('Not a number');
+typeof +num ==='number' ? num < 0 ? num = 'меньше нуля' : num == 0 ? num = 1 : num *= 10 : console.log('Not a number');
 
 // Используя конструктор switch, записать следующее условие:
 
