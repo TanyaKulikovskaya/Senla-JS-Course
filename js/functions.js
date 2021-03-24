@@ -3,7 +3,7 @@
 // С помощью рекурсии вычислить факториал числа 10.
 function factorial(num) {
     if (num < 0) 
-        return -1;
+        return;
     else if (num == 0) 
         return 1;
     else {
