@@ -16,7 +16,6 @@ function multiply(...theArgs) {
 // (multiply(1,2,3));
 
 
-
 // С помощью рекурсии вычислить факториал числа 10.
 function factorial(num) {
     if (num < 0) 
@@ -70,3 +69,19 @@ function stringSplit(string) {
 // stringSplit('javascript');
 
 
+/* Создать две функции и дать им осмысленные названия:
+первая функция принимает массив и callback, возвращая строку из обработанного массива.
+вторая функция (callback) обрабатывает каждый элемент массива  */
+function getStringFromArray (arr, callback) {
+    let str ='Ages: ', newArr = [];
+    for (let i = 0; i < arr.length; i++) {
+        newArr.push(callback(arr[i]));
+    }
+    return str = str + newArr.join(', ');
+}
+
+function getAge (year) {
+    return (new Date()).getFullYear() - year;
+}
+// let arrayOfYears = [1985, 1990, 2000];
+// console.log(getStringFromArray(arrayOfYears, getAge));
