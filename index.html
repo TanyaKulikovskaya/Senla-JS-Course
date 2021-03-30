@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+    <div>
+        <p>Текст</p>
+        <p>Другой</p>
+        <p>Следующий</p>
+        <p>Последний</p>
+    </div>
+    <div></div>
+    <div></div>
+
+    <script>
+        // Получить и вывести в консоль:
+
+        // 1. head
+        let theHead = document.head;
+        console.log(theHead);
+
+        // 2. body
+        let theBody = document.body;
+        console.log(theBody);
+
+        // 3. все дочерние элементы body
+        let children = theBody.children;
+        console.log(children);
+
+        // 4. первый div и все его дочерние узлы 
+        let mrFirst = document.getElementsByTagName('div')[0];
+        let mrFirstNodesList = mrFirst.childNodes; // children для дочерних узлов-элементов
+        console.log(mrFirst, mrFirstNodesList);
+
+        // 4.1 вывести в консоль все дочерние узлы 
+        console.log(mrFirstNodesList);
+        // 4.2 вывести в консоль все дочерние узлы, кроме первого
+        for (let i = 1; i < mrFirstNodesList.length; i++) {
+            console.log(mrFirstNodesList[i])
+        }
+
+    </script>
+
+</body>
+
+</html>
