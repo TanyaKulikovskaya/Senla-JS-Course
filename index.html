@@ -29,8 +29,10 @@
         console.log(children);
 
         // 4. первый div и все его дочерние узлы 
-        let mrFirst = document.getElementsByTagName('div')[0];
-        let mrFirstNodesList = mrFirst.childNodes; // children для дочерних узлов-элементов
+        let mrFirst = document.getElementsByTagName('div')[0]; // возвращает живую коллекцию
+        // let mrFirst = document.querySelector('div'); // возвращает статическую коллекцию
+
+        let mrFirstNodesList = mrFirst.childNodes; // сhildren для дочерних узлов, которые являются элементами
         console.log(mrFirst, mrFirstNodesList);
 
         // 4.1 вывести в консоль все дочерние узлы 
