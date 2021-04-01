@@ -83,5 +83,5 @@ function getStringFromArray (arr, callback) {
 function getAge (year) {
     return (new Date()).getFullYear() - year;
 }
-// let arrayOfYears = [1985, 1990, 2000];
-// console.log(getStringFromArray(arrayOfYears, getAge));
+
+// getStringFromArray([1985, 1990, 2000], getAge);
