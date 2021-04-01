@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     Функция проверяет является ли первый элемент родителям для второго элемента 
     isParent(parent, child) => true || false */
     function isParent (parent, child) {
-        return child.parentNode === parent;
+        return child.parentElement === parent;
     }
     
     // Найти элемент, который находится перед списком ul
@@ -18,10 +18,14 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('p').textContent;
 
 
-    /* Создать функцию, которая принимает в качестве аргумента узел DOM и возвращает информацию виде объекта,
+    /* Создать функцию, которая принимает в качестве аргумента узел DOM и возвращает информацию о виде объекта,
     о типе узла, имени узла и количестве дочерних узлов. */
-
+    function getNodeInfo (node) {
+        return `Вид объекта: ${node.constructor.name}, тип узла: ${node.nodeType}, имя узла: ${node.nodeName}, количество дочерних узлов: ${node.childNodes.length}`
+    }
+    
     // Найти список и добавить ему класс "list"
     document.querySelector('ul').classList.add('list');
     
 });
+
