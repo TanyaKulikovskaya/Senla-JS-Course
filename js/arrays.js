@@ -1,16 +1,23 @@
 'use strict';
 
+// Проверить, является ли объект массивом
+function isArray(obj) { 
+  return Array.isArray(obj);
+}
+
 // Используя функцию, найти последний элемент массива, не изменяя его.
-
-function findLastItem(array) { // первый вариант
-  return array[array.length - 1];
+function findLastItem(array) {
+  if (isArray(array)) {
+    if (array.length > 0) {
+      return array[array.length - 1]; // второй вариант [...array].pop();
+    } else 
+        throw new Error('An array is empty');
+  } else 
+        throw new Error('The argument is not an array');
 }
 
-function findLastItem_2(array) { // второй вариант
-  return [...array].pop();
-}
-// let arr = [1, 3, 5, 7, 'last'];
-// console.log(findLastItem(arr), findLastItem_2(arr), arr);
+// let arr = [];
+// console.log(findLastItem(arr), arr);
 
 
 /* Создать такую функцию, которая принимала бы массив [1,3,6], 
@@ -19,7 +26,6 @@ function duplicateArr(array) {
   return array.concat(array);
 }
 // console.log(duplicateArr([1, 3, 6]));
-
 
 
 /* Создать такую функцию, которая принимала бы любое число, 

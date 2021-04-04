@@ -1,4 +1,8 @@
 'use strict';
+// Проверить, является ли переменная числом
+function isNumber(value) { 
+    return typeof value === 'number' && isFinite(value);
+}
 
 /* Создать функцию multiply, которая будет принимать любое количество
 чисел и возвращать их произведение: multiplay(1,2,3) = 6. 
@@ -8,24 +12,28 @@ function multiply(...theArgs) {
     let multiply = 1;
     if (theArgs.length > 0) {
         for (let i = 0; i < theArgs.length; i++) {
+            if (!isNumber(theArgs[i])) 
+                throw new Error ('At least one of the arguments is not a number');
             multiply *=theArgs[i];
         } 
         return multiply;
     } else return 0;
 }
-// (multiply(1,2,3));
-
+// multiply(1, 2, 3);
 
 // С помощью рекурсии вычислить факториал числа 10.
 function factorial(num) {
-    if (num < 0) 
-        return;
-    else if (num == 0) 
-        return 1;
-    else {
-        return (num * factorial(num - 1));
+    if (isNumber(num)) {
+        if (num < 0) 
+            throw new Error('An argument is negative');
+        else if (num === 0) 
+            return 1;
+        else 
+            return (num * factorial(num - 1));
     }
-  }
+    else 
+        throw new Error ('An argument is not a number');
+}
 // factorial(10);
 
 
