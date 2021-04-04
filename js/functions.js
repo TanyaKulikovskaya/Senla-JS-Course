@@ -23,16 +23,10 @@ function multiply(...theArgs) {
 
 // С помощью рекурсии вычислить факториал числа 10.
 function factorial(num) {
-    if (isNumber(num)) {
-        if (num < 0) 
-            throw new Error('An argument is negative');
-        else if (num === 0) 
-            return 1;
-        else 
-            return (num * factorial(num - 1));
-    }
-    else 
-        throw new Error ('An argument is not a number');
+    if (!isNumber(num)) throw new Error ('An argument is not a number');
+    else if (num < 0) throw new Error('Number argument is negative');
+    else if (num === 0) return 1;
+    return (num * factorial(num - 1));
 }
 // factorial(10);
 

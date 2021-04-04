@@ -7,22 +7,18 @@ function isArray(obj) {
 
 // Используя функцию, найти последний элемент массива, не изменяя его.
 function findLastItem(array) {
-  if (isArray(array)) {
-    if (array.length > 0) {
-      return array[array.length - 1]; // второй вариант [...array].pop();
-    } else 
-        throw new Error('An array is empty');
-  } else 
-        throw new Error('The argument is not an array');
+  if (!isArray(array)) throw new Error('The argument is not an array');
+  else if (array.length === 0) throw new Error('An array is empty');
+  return array[array.length - 1]; // второй вариант [...array].pop();
 }
-
-// let arr = [];
+// let arr = [1, 2, 'last];
 // console.log(findLastItem(arr), arr);
 
 
 /* Создать такую функцию, которая принимала бы массив [1,3,6], 
 а возвращала новый массив с дублированными элементами [1,3,6,1,3,6]. */
 function duplicateArr(array) {
+  if (!isArray(array)) throw new Error('The argument is not an array');
   return array.concat(array);
 }
 // console.log(duplicateArr([1, 3, 6]));
@@ -30,7 +26,7 @@ function duplicateArr(array) {
 
 /* Создать такую функцию, которая принимала бы любое число, 
 а возвращала массив, заполненный числами от 1 до n. */
-function createArray (n) {
+function createArray(n) {
   let array = [];
   for (let i = 1; i <= n; i++) { // вариант для n включительно
     array.push(i);
