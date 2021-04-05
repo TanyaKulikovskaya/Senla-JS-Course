@@ -17,22 +17,24 @@
         // Получить и вывести в консоль:
 
         // 1. head
-        let theHead = document.head;
+        // const theHead = document.head;
+        const theHead = document.firstElementChild.firstElementChild;
         console.log(theHead);
 
         // 2. body
-        let theBody = document.body;
+        // const theBody = document.body;
+        const theBody = document.firstElementChild.lastElementChild;
         console.log(theBody);
 
         // 3. все дочерние элементы body
-        let children = theBody.children;
+        const children = theBody.children;
         console.log(children);
 
         // 4. первый div и все его дочерние узлы 
-        let mrFirst = document.getElementsByTagName('div')[0]; // возвращает живую коллекцию
-        // let mrFirst = document.querySelector('div'); // возвращает статическую коллекцию
+        const mrFirst = document.getElementsByTagName('div')[0]; // возвращает живую коллекцию
+        // const mrFirst = document.querySelector('div'); // возвращает статическую коллекцию
 
-        let mrFirstNodesList = mrFirst.childNodes; // сhildren для дочерних узлов, которые являются элементами
+        const mrFirstNodesList = mrFirst.childNodes; // сhildren для дочерних узлов, которые являются элементами
         console.log(mrFirst, mrFirstNodesList);
 
         // 4.1 вывести в консоль все дочерние узлы 
