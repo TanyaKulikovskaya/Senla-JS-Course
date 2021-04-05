@@ -1,9 +1,18 @@
 'use strict';
 
-// Проверить, является ли объект массивом
+// Используя функцию, проверить, является ли объект массивом
 function isArray(obj) { 
   return Array.isArray(obj);
 }
+
+
+// Используя функцию, проверить, является ли переменная числом
+function isNumber(value) { 
+  return typeof value === 'number' && isFinite(value);
+  // если допустима строковая переменная с числовым значением 
+  // return value => !isNaN(parseFloat(value)) && isFinite(value);
+}
+
 
 // Используя функцию, найти последний элемент массива, не изменяя его.
 function findLastItem(array) {
@@ -27,6 +36,7 @@ function duplicateArr(array) {
 /* Создать такую функцию, которая принимала бы любое число, 
 а возвращала массив, заполненный числами от 1 до n. */
 function createArray(n) {
+  if (!isNumber(n)) throw new Error('An argument is not a number');
   let array = [];
   for (let i = 1; i <= n; i++) { // вариант для n включительно
     array.push(i);
@@ -36,17 +46,22 @@ function createArray(n) {
 // createArray(25);
 
 
-/* Создать такую функцию, которая принимала бы любое число массивов
-и удаляла из каждого массива первый элемент, 
-а возвращала массив оставшихся значений 
-([1, 2, 3], ["x", "y", "z"] → [[2, 3], ["y", "z"]])" */
-function changeArrays (...theArrays) {
+/* Создать такую функцию, которая принимала бы любое число массивов и удаляла из каждого массива первый элемент, 
+а возвращала массив оставшихся значений ([1, 2, 3], ["x", "y", "z"] → [[2, 3], ["y", "z"]])" */
+function changeArrays (...theArrays) { // первый вариант
   for (let i = 0; i < theArrays.length; i++) {
+    if (!isArray(theArrays[i])) throw new Error('At least one of the arguments is not an array'); 
     theArrays[i] = theArrays[i].slice(1);
-  } 
+  }
   return theArrays;
 }
 // changeArrays([1, 2, 3], ["x", "y", "z"]);
+
+
+function removeFirstItems (...theArrays) { // второй вариант
+    return theArrays.map(item => item.slice(1));
+}
+// removeFirstItems([1, 2, 3], ["x", "y", "z"]);
 
 
 /* Создать функцию, которая упорядочит буквы в строке "екважбигёзд" 
@@ -55,6 +70,7 @@ function sortByAlphabet(str) {
   return str.split('').sort((a, b) => a.localeCompare(b)).reverse().join('');
 }
 // sortByAlphabet('екважбигёзд')
+
 
 /* Создать функцию, которая принимает 3 аргумента: 
 любой произвольный массив, начальный номер элемента в массиве, конечный номер.
@@ -66,7 +82,6 @@ function getNewArray(arr, startItem, endItem) {
   return arr.filter(item => (startItem <= arr.indexOf(item) && arr.indexOf(item) <= endItem));
 }
 // getNewArray(['а', 'б', 'в', 'г', 'д', 'е'], 1, 3));
-
 
 
 // Используя функцию, отсортировать массив [5, 2, -1, 6, 9, -9, 3] в обратном порядке.

@@ -1,13 +1,11 @@
 'use strict';
-// Проверить, является ли переменная числом
+// Используя функцию, проверить, является ли переменная числом
 function isNumber(value) { 
     return typeof value === 'number' && isFinite(value);
 }
 
 /* Создать функцию multiply, которая будет принимать любое количество
-чисел и возвращать их произведение: multiplay(1,2,3) = 6. 
-Если нет ни одного аргумента вернуть ноль. */
-
+чисел и возвращать их произведение: multiplay(1,2,3) = 6. Если нет ни одного аргумента вернуть ноль. */
 function multiply(...theArgs) {
     let multiply = 1;
     if (theArgs.length > 0) {
@@ -21,6 +19,7 @@ function multiply(...theArgs) {
 }
 // multiply(1, 2, 3);
 
+
 // С помощью рекурсии вычислить факториал числа 10.
 function factorial(num) {
     if (!isNumber(num)) throw new Error ('An argument is not a number');
@@ -33,7 +32,7 @@ function factorial(num) {
 
 // Создать функцию, которая принимает строку и возвращает перевернутую строку ('test') = 'tset'
 function reverseStr(str) {
-    return str.split("").reverse().join("");
+    return str.split('').reverse().join('');
 }
 // reverseStr('test');
 
@@ -44,6 +43,7 @@ function isPalindrome (word) {
     return word === word.split('').reverse().join('')
 }
 // isPalindrome('eye');
+
 
 /* Создать функцию, которая в качестве аргумента принимает строку из букв и возвращает строку, 
 где каждый символ разделен пробелом и заменён на значение символа из юникода. 
