@@ -18,10 +18,14 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('p').textContent;
 
 
-    /* Создать функцию, которая принимает в качестве аргумента узел DOM и возвращает информацию о виде объекта,
+    /* Создать функцию, которая принимает в качестве аргумента узел DOM и возвращает информацию в виде объекта
     о типе узла, имени узла и количестве дочерних узлов. */
-    function getNodeInfo (node) {
-        return `Вид объекта: ${node.constructor.name}, тип узла: ${node.nodeType}, имя узла: ${node.nodeName}, количество дочерних узлов: ${node.childNodes.length}`
+    function getNodeInfo(node) {
+        return {
+            'тип узла': node.nodeType, 
+            'имя узла': node.nodeName, 
+            'количество дочерних узлов': node.childNodes.length,
+        };
     }
     
     // Найти список и добавить ему класс "list"
