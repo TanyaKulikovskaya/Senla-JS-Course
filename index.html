@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+    <div>
+        <p>Текст</p>
+        <p>Другой</p>
+        <p>Следующий</p>
+        <p>Последний</p>
+    </div>
+    <div></div>
+    <div></div>
+
+    <script>
+        // Получить и вывести в консоль:
+
+        // 1. head
+        // const theHead = document.head;
+        const theHead = document.firstElementChild.firstElementChild;
+        console.log(theHead);
+
+        // 2. body
+        // const theBody = document.body;
+        const theBody = document.firstElementChild.lastElementChild;
+        console.log(theBody);
+
+        // 3. все дочерние элементы body
+        const children = theBody.children;
+        console.log(children);
+
+        // 4. первый div и все его дочерние узлы 
+        const mrFirst = document.getElementsByTagName('div')[0]; // возвращает живую коллекцию
+        // const mrFirst = document.querySelector('div'); // возвращает статическую коллекцию
+
+        const mrFirstNodesList = mrFirst.childNodes; // сhildren для дочерних узлов, которые являются элементами
+        console.log(mrFirst, mrFirstNodesList);
+
+        // 4.1 вывести в консоль все дочерние узлы 
+        console.log(mrFirstNodesList);
+        // 4.2 вывести в консоль все дочерние узлы, кроме первого
+        for (let i = 1; i < mrFirstNodesList.length; i++) {
+            console.log(mrFirstNodesList[i])
+        }
+
+    </script>
+
+</body>
+
+</html>
